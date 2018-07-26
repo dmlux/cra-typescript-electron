@@ -115,7 +115,6 @@ module.exports = function (
     "@types/jest",
     "electron",
     "electron-builder",
-    "react-router-dom",
   ];
 
   console.log(
@@ -123,11 +122,33 @@ module.exports = function (
   );
   console.log();
 
-  const devProc = spawn.sync(command, args.concat(types), {
+  let devProc = spawn.sync(command, args.concat(types), {
     stdio: "inherit"
   });
   if (devProc.status !== 0) {
     console.error(`\`${command} ${args.concat(types).join(" ")}\` failed`);
+    return;
+  }
+  
+  // install react-router as a dependency
+  console.log(
+    `Installing react-router-dom as dependency ${command}...`
+  )
+  console.log();
+  
+  let argsDep;
+  
+  if (useYarn) {
+    argsDep = ["add", "react-router-dom"];
+  } else {
+    argsDep = ["install", "--save", "react-router-dom", verbose && "--verbose"].filter(e => e);
+  }
+  
+  devProc = spawn.sync(command, argsDep, {
+    stdio: "inherit"
+  });
+  if (devProc.status !== 0) {
+    console.error(`\`${command} ${args.join(" ")}\` failed`);
     return;
   }
 
