@@ -12,6 +12,7 @@
     "jsx-no-lambda": false,
     "arrow-parens": false,
     "semicolon": [false],
-    "no-unused-expression": false
+    "no-unused-expression": false,
+    "no-implicit-dependencies": false
   }
 }

@@ -41,10 +41,10 @@ module.exports = function (
 
   // Setup the script rules
   appPackage.scripts = {
-    start: "react-scripts-ts-electron start",
-    build: "react-scripts-ts-electron build",
-    test: "react-scripts-ts-electron test --env=jsdom",
-    eject: "react-scripts-ts-electron eject",
+    start: "ts-electron-react-script start",
+    build: "ts-electron-react-script build",
+    test: "ts-electron-react-script test --env=jsdom",
+    eject: "ts-electron-react-script eject",
   };
 
   modifiyPackageJson(appPackage);
@@ -111,9 +111,11 @@ module.exports = function (
     "@types/node",
     "@types/react",
     "@types/react-dom",
+    "@types/react-router-dom",
     "@types/jest",
     "electron",
-    "electron-builder"
+    "electron-builder",
+    "react-router-dom",
   ];
 
   console.log(
