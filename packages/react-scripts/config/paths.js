@@ -80,7 +80,7 @@ module.exports = {
   appHtml: resolveApp('public/index.html'),
   appIndexJs: resolveApp(`${appPath}/index.tsx`),
   appPackageJson: resolveApp('package.json'),
-  appSrc: resolveApp(appPath),
+  appSrc: resolveApp('src'),
   yarnLockFile: resolveApp('yarn.lock'),
   testsSetup: resolveApp(`${appPath}/setupTests.ts`),
   appNodeModules: resolveApp('node_modules'),
